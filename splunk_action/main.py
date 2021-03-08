@@ -74,7 +74,7 @@ def collect_build_data():
 def process_reports(build_data):
     
     allartifactresponse = requests.get(f"{GITHUB_API_URL}/repos/{GITHUB_REPOSITORY}/actions/artifacts", headers=header)
-    giturl = GITHUB_API_URL}+"/repos/"+GITHUB_REPOSITORY+"/actions/artifacts"
+    giturl = GITHUB_API_URL+"/repos/"+GITHUB_REPOSITORY+"/actions/artifacts"
     print(giturl)
     allartifactresponseJson = allartifactresponse.json()
     print(allartifactresponseJson)
