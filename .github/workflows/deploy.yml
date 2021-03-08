@@ -83,12 +83,12 @@ jobs:
           unzip -j polaris_cli-linux64.zip -d /tmp
           mkdir /tmp/output
           /tmp/polaris -c polaris.yml analyze -w --coverity-ignore-capture-failure | tee /tmp/output/polaris-output.txt
-
+          export polaris_report_name=Polaris SAST Results Splunk_$GITHUB_RUN_ID
       - name: Polaris SAST Report
         if: always()
         uses: actions/upload-artifact@v2
         with:
-          name: Polaris SAST Results Splunk_"${GITHUB_RUN_ID}"
+          name: $polaris_report_name
           path: /tmp/output/polaris-output.txt
           
   Blackduck-SCA:
