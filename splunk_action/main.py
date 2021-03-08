@@ -74,8 +74,10 @@ def collect_build_data():
 def process_reports(build_data):
     
     allartifactresponse = requests.get(f"{GITHUB_API_URL}/repos/{GITHUB_REPOSITORY}/actions/artifacts", headers=header)
+    giturl = GITHUB_API_URL}+"/repos/"+GITHUB_REPOSITORY+"/actions/artifacts"
+    print(giturl)
     allartifactresponseJson = allartifactresponse.json()
-    #print(allartifactresponseJson)
+    print(allartifactresponseJson)
  
     if allartifactresponseJson['total_count'] > 0:
         for i in allartifactresponseJson['artifacts']:
@@ -87,7 +89,7 @@ def process_reports(build_data):
             z.extractall()
 
             #delete artifacts
-            requests.delete(f"{GITHUB_API_URL}/repos/{GITHUB_REPOSITORY}/actions/artifacts/{id}", headers=header)
+            #requests.delete(f"{GITHUB_API_URL}/repos/{GITHUB_REPOSITORY}/actions/artifacts/{id}", headers=header)
 
         polarisJson = process_polaris_report('polaris-output.txt' , build_data)
         codecoverageJson = process_code_coverage('coverage-summary.json',polarisJson)
