@@ -1,4 +1,4 @@
-# .github/workflows/deploy.yaml nodejs app
+# .github/workflows/deploy.yaml nodejs app.
 name: CI - Build Test and SCAN
 on:
   push:
