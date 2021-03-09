@@ -88,7 +88,8 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ runner.os }}-build-id-${{ github.head_ref }}-${{ github.sha }}-${{ steps.build_id.outputs.id }}
+          name: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
+#           name: ${{ runner.os }}-build-id-${{ github.head_ref }}-${{ github.sha }}-${{ steps.build_id.outputs.id }}
           path: /tmp/output/polaris-output.txt
           
 #   Blackduck-SCA:
