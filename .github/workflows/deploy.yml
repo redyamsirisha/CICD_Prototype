@@ -88,7 +88,8 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v2
         with:
-          name: '${{ github.sha }}-${{ github.head_ref }}-${{ github.event_name }}'
+          name: Polaris SAST Results Splunk_${{ github.run_id }}-${{github.head_ref}}
+#           name: '${{ github.sha }}-${{ github.head_ref }}-${{ github.event_name }}'
 #           name: ${{ runner.os }}-build-id-${{ github.head_ref }}-${{ github.sha }}-${{ steps.build_id.outputs.id }}
           path: /tmp/output/polaris-output.txt
           
